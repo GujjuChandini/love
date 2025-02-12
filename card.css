@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    position: relative;
+}
+
+/* Center the video with space around all four sides */
+.fullscreen-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;  /* Adjust width to leave space */
+    height: 80%; /* Adjust height to leave space */
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    border-radius: 20px; /* Optional: Rounded corners for a smooth look */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); /* Optional: Adds a soft shadow */
+    display: none;
+}
+
+#playButton, #replayButton, #homeButton {
+    position: absolute;
+    padding: 15px 40px;
+    font-size: 20px;
+    background: #ff007f;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    animation: pulse 1.5s infinite;
+}
+
+#playButton:hover, #replayButton:hover, #homeButton:hover {
+    background: #ff3b8b;
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Hide Replay & Home buttons initially */
+.hidden {
+    display: none;
+}
+
+#controls {
+    position: absolute;
+    display: flex;
+    gap: 15px;
+    bottom: 50px;
+}
+
+/* Floating Hearts Animation */
+#heartsContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(-45deg);
+    animation: rise 5s linear infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -10px;
+    left: 0;
+}
+
+.heart:after {
+    left: 10px;
+    top: 0;
+}
+
+@keyframes rise {
+    0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(-45deg); opacity: 0; }
+}

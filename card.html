@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Animation</title>
+    <link rel="stylesheet" href="/card.css">
+</head>
+<body>
+    <video id="loveVideo" class="fullscreen-video" src="/rajnish.mp4" loop></video>
+    <audio id="loveAudio" src="/rajnish.mp3"></audio>
+    
+    <button id="playButton">Love ❤️</button>
+    
+    <!-- Replay and Back to Home Buttons (Hidden Initially) -->
+    <div id="controls" class="hidden">
+        <button id="replayButton">Replay 🔄</button>
+        <button id="homeButton">Back to Home 🏠</button>
+    </div>
+
+    <div id="heartsContainer"></div>
+
+    <script>
+        let video = document.getElementById("loveVideo");
+        let audio = document.getElementById("loveAudio");
+        let playButton = document.getElementById("playButton");
+        let controls = document.getElementById("controls");
+        let replayButton = document.getElementById("replayButton");
+        let homeButton = document.getElementById("homeButton");
+
+        // Play video and audio when button is clicked
+        playButton.addEventListener("click", function() {
+            video.style.display = "block"; // Make video visible
+            video.play();
+            audio.play();
+            this.style.display = "none"; // Hide play button
+        });
+
+        // When video ends, stop audio and show Replay & Home buttons
+        video.addEventListener("ended", function() {
+            audio.pause();
+            audio.currentTime = 0;
+            controls.classList.remove("hidden"); // Show buttons
+        });
+
+        // Replay button functionality
+        replayButton.addEventListener("click", function() {
+            controls.classList.add("hidden"); // Hide buttons
+            video.play();
+            audio.play();
+        });
+
+        // Back to home button functionality
+        homeButton.addEventListener("click", function() {
+            window.location.href = "/index.html"; // Redirect to home (change URL as needed)
+        });
+    </script>
+</body>
+</html>

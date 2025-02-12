@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envelope Letter</title>
+    <link rel="stylesheet" href="./letter.css">
+</head>
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>Dear Future Husband,</strong>
+                        <p>
+                            From the moment I met you, my heart knew it belonged to you. You are my light, my joy, and my peace. Your love inspires me every day. No matter what life brings, I will stand by your side, cherishing every moment as my greatest love and best friend.
+                        </p>
+                        <h4>--------------Love you mere jaan-----------</h4>
+                    </div>
+                </div>
+                <div class="heart"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.envelope-wrapper').addEventListener('click', function () {
+            this.classList.toggle('flap');
+        });
+    </script>
+</body>
+</html>
